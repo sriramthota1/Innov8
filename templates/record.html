@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/css/record.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="markattendance.html" style="background-color:white; position:absolute; top:5%; right:10%;">Back</a>
+<h2>Presentees:</h2><br><br>
+<div class="table-wrapper">
+<table class="fl-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hall Ticket</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data1%}
+            <tr>
+            {% for cell in row %}
+            <td>{{cell}}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    <tr>
+        <th>No. of presentees:</th>
+        <th>{{count}}</th>
+    </tr>
+    </tbody>
+</table>
+</div><br><br>
+<h2>Absentees:</h2><br><br>
+<div class="table-wrapper">
+<table class="fl-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hall Ticket</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data2%}
+            <tr>
+            {% for cell in row %}
+            <td>{{cell}}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+     <tr>
+        <th>No. of absentees:</th>
+        <th>{{alength}}</th>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</body>
+</html>

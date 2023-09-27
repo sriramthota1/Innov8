@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title> Login</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    .login-page {
+  width: auto;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #fc9730;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background: #ff8100;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  text-decoration: none;
+}
+
+
+#pos{
+  top:50%;
+}
+input:checked  {
+  background-color: #fc9730;
+}
+@media only screen and (min-device-width : 300px) and (max-device-width : 700px)  {
+  #pos{
+    top:60%;
+  }
+  .text-box {
+    width: 90%;}
+}
+
+</style>
+</head>
+<body>
+<section class="header">
+  <nav>
+    <a href="index.html"><img src="images/s2d.png" class="logo"></a>
+  <div class="nav-links" id="navLinks">
+  <i class="fa fa-times"onclick="hideMenu()"></i>
+  <ul>
+       <li><a href="index.html">Home</a></li>
+     <li><a href="services.html">Services</a></li>
+     <li><a href="projects.html">Project</a></li>
+     <li><a href="team.html">Team</a></li>
+ </ul>
+   </div>	<i class="fa fa-bars" onclick="showMenu()" ></i>
+</nav>
+<div class="text-box" id="pos" style="font-size: 20px;color: #fc9730; display: block;">
+  
+  <div  id="login_page" style="display: block;">
+    <h3 style="color: #fc9730;">HOSPITAL APPOINTMENT REQUESTS</h3>
+    
+    <div class="form">
+          <div class="login-form" id="form">
+              <h2 style="color: #fc9730; padding: 25px;">Forgot ID</h2>
+            <input type="radio" name="radio" id="radiophn" style="width: 10%;color: #fc9730;font-size: 20px;"/>
+              <input type="number" style="width: 85%;" id="hphn" value="" placeholder="Mobile Number"/>
+            <p style="color: #b3b3b3;margin:0px;
+            font-size: 12px;">( or )</p>
+            <input type="radio" name="radio" id="radiomail" style="width: 10%;"/>
+            <input type="email" style="width: 85%;" id="hmail" value="" placeholder="Email" />
+            <button  value="Reset" onclick="search()">Search ID</button>
+
+            <p class="message" id="res" style="color: green; font-size: 20px; display: none;"> Found ID : <span id="fid" style="font-size: larger; font-weight: bold;"></span> </p>
+
+            <p class="message" >Enter your details to know  <a style="color: #fc9730;" >your ID</a></p>
+            <p class="message" id="err" style="color:#fc9730;
+            margin-block-start: 0em;
+            margin-block-end: 0em;padding: 10px 0px 0px 0px;
+            font-size: 15px; font-weight: bold; color: #ef3b3a; display: none;">Not Registered ! <br><span style="font-size: 15px; padding-bottom: 5px;" id="logerror">No ID Found.</span> </p>
+
+            <br>
+            <button style="width: 40%; padding: 10px;" onclick="login()">Login</button> &nbsp;
+            <button style="width: 40%; padding: 10px;" onclick="register()">Register</button>
+          </div>
+        </div>
+      </div>    
+</div>
+<div class="text-box"  style="font-size: 30px;display: none;" id="loggedin" >
+    <div class="course-col"  onclick="window.location.href='data_from_bot.html';">
+      <h4 id="hid_l"></h4>
+      <h4 style="font-size: 20px;">Your Already Logged in</h4>
+    </div>
+</div>
+
+</section>
+
+
+
+<script>
+  window.location.replace("?#");
+   var  navLinks = document.getElementById("navLinks");
+   
+   function showMenu(){
+   	navLinks.style.right="0";
+	   navLinks.style.visibility="visible";
+   
+   }
+   
+   function hideMenu(){
+   navLinks.style.right="-200px";
+   navLinks.style.visibility="hidden";
+   
+   }
+   console.log(hid);
+   var hid = sessionStorage.getItem("hid");
+   console.log(hid);
+   if(hid == "logouted" || hid==null){
+      document.getElementById("pos").style.display="block";
+      document.getElementById("loggedin").style.display="none";
+   }
+  else{
+      document.getElementById("pos").style.display="none";
+      document.getElementById("hid_l").innerHTML=hid;
+      document.getElementById("loggedin").style.display="block";
+     
+   }
+   function register(){
+    location.href ='register.html';
+   }
+   function login(){
+    location.href = 'login.html';
+   }
+   
+   function search(){
+        document.getElementById("res").style.display="none";
+        var r1=document.getElementById("radiophn").checked;
+        var r2=document.getElementById("radiomail").checked;
+            // if()
+        console.log(r1,r2);
+        if(r1){
+            var hphn=document.getElementById("hphn").value;
+            document.getElementById("hmail").value="";
+                  let xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+                      let data = JSON.parse(this.responseText);
+                      console.log(data);
+                      console.log(data.length);
+                      function user(u){
+                        return u.hphn==hphn;
+                      }
+                      const findUser=data.find(user);
+                      console.log(findUser,hphn);
+                      if(findUser){
+                          console.log(findUser.hid);
+                        document.getElementById("res").style.display="block";
+                        document.getElementById("fid").innerHTML=findUser.hid;
+                      }
+                      else{
+                        document.getElementById("err").style.display="block";
+                          document.getElementById("logerror").innerHTML="ID not Exist with this Mobile number";
+                          
+                          $('#err').fadeIn('slow', function () {
+                              $(this).delay(2000).fadeOut('slow');
+                            });
+                        
+                      }
+                    }
+                };
+            
+            xmlhttp.open(
+            "GET",
+            "https://ap-south-1.aws.data.mongodb-api.com/app/api-zdznr/endpoint/LoginGet",
+            true
+            );
+            xmlhttp.send();
+            
+            }
+        else if(r2){
+        var hmail=document.getElementById("hmail").value;
+        document.getElementById("hphn").value="";
+        console.log(hmail);
+        let xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+                      let data = JSON.parse(this.responseText);
+                      console.log(data);
+                      console.log(data.length);
+                      function user(u){
+                        return u.hemail==hmail;
+                      }
+                      const findUser=data.find(user);
+                      console.log(findUser,hmail);
+                      if(findUser){
+                          console.log(findUser.hid);
+                        document.getElementById("res").style.display="block";
+                        document.getElementById("fid").innerHTML=findUser.hid;
+                      }
+                      else{
+                        document.getElementById("err").style.display="block";
+                          document.getElementById("logerror").innerHTML="ID not Exist with this Email";
+                          
+                          $('#err').fadeIn('slow', function () {
+                              $(this).delay(2000).fadeOut('slow');
+                            });
+                        
+                      }
+                    }
+                };
+            
+            xmlhttp.open(
+            "GET",
+            "https://ap-south-1.aws.data.mongodb-api.com/app/api-zdznr/endpoint/LoginGet",
+            true
+            );
+            xmlhttp.send();
+            
+        }
+   }  
+        //     if(hid!="" && hpassword!="" && hid!= undefined && hpassword!=undefined ){
+        
+   </script>
+
+</body>
+</html>

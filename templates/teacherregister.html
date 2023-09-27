@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+<style>
+body{
+
+   margin: 0px;
+    text-align: center;
+    color: white;
+    /* font-family: Verdana, Tahoma, sans-serif; */
+    font-family: "Open Sans", sans-serif;
+    font-size: larger;
+    background-image: url('../static/images/pageImages/bg.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 2% 1% 2%;
+}
+.navbar img{
+    width: 80px;
+}
+.navtitle{
+
+    display: flex;
+    justify-content: baseline;
+}
+.navtitle p{
+
+
+    padding: 10px;
+    font-weight: bolder;
+    color: white;
+}
+.titletag{
+    text-align: center;
+    display: inline-flex;
+    margin-left: -13%;
+}
+.trackmy p{
+position: relative;
+  left: -310%;
+    margin-block-start: 0em;
+    margin-block-end: 2px;
+    text-align: right;
+    color: black;
+    font-size: 40px;
+    font-weight: 550;
+}
+.attendance p{
+position: relative;
+  left: -60%;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    font-size: 80px;
+    color: black;
+    font-weight: bolder;
+    /*color: rgba(7, 7, 8, 0.681);*/
+    webkit-background-clip: text;
+    webkit-text-fill-color: black;
+}
+.producttitle p{
+position: relative;
+  left: -50%;
+
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-right: -70%;
+    color: white;
+
+}
+
+    .login-page {
+  width: auto;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: absolute;
+  left:37%;
+  top: 25%;
+  z-index: 1;
+ // background: #ffffff;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #fc9730;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background: #ff8100;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  text-decoration: none;
+}
+
+#pos{
+  top:62%;
+}
+#hage{
+      width: 20%;
+  }
+#hphn{
+      width: 78%;
+  }
+@media only screen and (min-device-width : 300px) and (max-device-width : 700px)  {
+  #pos{
+    top:60%;
+  }
+  #hage{
+      width: 30%;
+  }
+  #hphn{
+      width: 65%;
+  }
+  .text-box {
+    width: 90%;}
+}
+
+</style>
+</head>
+<body>
+<section class="header">
+     <div class="navbar">
+    <div class="navtitle">
+        <img src="../static/images/pageImages/logo.png" alt="" width="20" height="70">
+        <p>Cod3 Knights</p>
+    </div>
+<div class="t">
+        <div class="titletag">
+            <div class="trackmy">
+                <p>Track</p>
+                <p>my</p>
+            </div>
+            <div class="attendance">
+                <p>ATTENDANCE</p>
+            </div>
+
+        </div>
+        <div class="producttitle">
+            <p><b>a product from Cod3Knights</b></p>
+        </div>
+
+<div class="text-box" id="pos" style="font-size: 20px;color: #fc9730; display: block;">
+  
+  <div  id="login_page" style="display: block;">
+
+    
+    <div class="form">
+          <div class="login-form" id="form" style="display:block;">
+              <h2 style="color: #fc9730; padding: 5px; background-color:black;">Register</h2>
+            <!-- <label for="hname">Full Name</label> -->
+            <input type="text" id="hname" value="" placeholder="Full Name" required/>
+            <!-- <input type="text" id="hid" value="" placeholder="Name"/> -->
+            <input  type="number" id="hage" value="" placeholder="Age"  required/>
+            <input  type="number" id="hphn" value="" placeholder="Mobile Number" required/>
+            <input type="email" id="hemail" value="" placeholder="Email" required/>
+            <input type="password" id="hpassword" value="" placeholder="Password" required/>
+            <input type="password" id="cpassword" value="" placeholder="Confirm Password" required/>
+            <button  value="Reset" onclick="register()">Register</button>
+            <p class="message" ><b>Note :</b> <a style="color: white; font-size:15px;" >This Login is only for Teachers</a></p>
+            <p class="message" id="err" style="color:#fc9730;
+            margin-block-start: 0em;
+            margin-block-end: 0em;padding: 10px 0px 0px 0px;
+            font-size: 15px; font-weight: bold; color: #f16d6d; display: none;">Invalid Register! <br><span id="invalid" style="font-size: 15px;">Please Check details again !</span> </p>
+            </div>
+
+            <div id="success" style="display: none;">
+                <p style="color: green;">Registeration Successfull</p>
+                <img src="./images/correct.gif" alt="">
+
+                <p style="color: green;">Your Unique ID <span id="uqid" style="font-weight: bolder;font-size: x-large;"></span></p>
+
+            </div>
+
+            <button style="width: 40%; padding: 10px; " onclick="login()"> Login now</button>
+            
+        </div>
+      </div>    
+</div>
+<div class="text-box"  style="font-size: 30px;display: none;" id="loggedin" >
+    <div class="course-col"  onclick="window.location.href='data_from_bot.html';">
+      <h4 id="hid_l"></h4>
+      <h4 style="font-size: 20px;">Your Already Logged in</h4>
+    </div>
+</div>
+
+</section>
+
+<script>
+    // (B) ENCRYPT & DECRYPT FUNCTIONS
+    var crypt = {
+      // (B1) THE SECRET KEY
+      secret : "444",
+     
+      // (B2) ENCRYPT
+      encrypt : (clear) => {
+        var cipher = CryptoJS.AES.encrypt(clear, crypt.secret);
+        cipher = cipher.toString();
+        return cipher;
+      },
+     
+      // (B3) DECRYPT
+      decrypt : (cipher) => {
+        var decipher = CryptoJS.AES.decrypt(cipher, crypt.secret);
+        decipher = decipher.toString(CryptoJS.enc.Utf8);
+        return decipher;
+      }
+    };
+     
+    // (C) TEST
+    // (C1) ENCRYPT CLEAR TEXT
+    var cipher = crypt.encrypt("FOO BAR");
+    console.log(cipher);
+     
+    // (C2) DECRYPT CIPHER TEXT
+    var decipher = crypt.decrypt(cipher);
+    console.log(decipher);
+</script>
+
+
+<script>
+  window.location.replace("?#");
+   var  navLinks = document.getElementById("navLinks");
+   
+   function showMenu(){
+   	navLinks.style.right="0";
+	   navLinks.style.visibility="visible";
+   
+   }
+   
+   function hideMenu(){
+   navLinks.style.right="-200px";
+   navLinks.style.visibility="hidden";
+   
+   }
+   console.log(hid);
+   var hid = sessionStorage.getItem("hid");
+   console.log(hid);
+   if(hid == "logouted" || hid==null){
+      document.getElementById("pos").style.display="block";
+      document.getElementById("loggedin").style.display="none";
+   }
+  else{
+      document.getElementById("pos").style.display="none";
+      document.getElementById("hid_l").innerHTML=hid;
+      document.getElementById("loggedin").style.display="block";
+     
+   }
+   function register(){
+      
+    var hpassword=document.getElementById('hpassword').value;
+    var cpassword=document.getElementById('cpassword').value;
+    console.log(hpassword,cpassword);
+    var hname=document.getElementById("hname").value;
+    var hage=document.getElementById("hage").value;
+    var hphn=document.getElementById("hphn").value;
+    var hemail=document.getElementById("hemail").value;
+            
+    if( hpassword == cpassword && hpassword!="" && cpassword!="" && hname!="" && hage!="" && hphn!="" && hemail!=""){
+        
+        // var hid="10001";
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let data = JSON.parse(this.responseText);
+            console.log(data);
+            console.log(data.length);
+            // sendata();
+            var hid="1000"+data.length;
+            function user(u){
+                return u.hphn==hphn;
+            }
+            const findUser=data.find(user);
+            console.log(findUser);
+
+            
+            function user1(u){
+                return u.hemail==hemail;
+            }
+            const findUser1=data.find(user1);
+            console.log(findUser1);
+
+            if(findUser){
+                document.getElementById("err").style.display="block";
+                document.getElementById("invalid").innerHTML="Mobile Number Already Exists.";
+                $('#err').fadeIn('slow', function () {
+                    $(this).delay(2000).fadeOut('slow');
+                });
+            }
+            else if(findUser1){
+                document.getElementById("err").style.display="block";
+                document.getElementById("invalid").innerHTML="Email Already Exists.";
+                $('#err').fadeIn('slow', function () {
+                    $(this).delay(2000).fadeOut('slow');
+                });
+            }
+            else{
+                let hdata="teachername="+hname+"&teacherid="+hid+"&password="+hpassword;
+                const baseUrl="https://ap-south-1.aws.data.mongodb-api.com/app/trackmyattendance_portal-kexzf/endpoint/TeacherRegister_POST?"+hdata;
+                let xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let data = JSON.parse(this.responseText);
+                            console.log(data);
+                            // document.location.reload(true);
+                            // getData();
+                            // document.getElementById("message").value="";
+                            document.getElementById("form").style.display="none";
+                            document.getElementById("success").style.display="block";
+                            document.getElementById("uqid").innerHTML=hid;
+                            
+                
+                        }
+                    };
+                
+            
+                xmlhttp.open(
+                "POST",
+                baseUrl,
+                true
+                );
+                xmlhttp.send();
+            } 
+                }
+            };
+            
+            xmlhttp.open(
+            "GET",
+            "https://ap-south-1.aws.data.mongodb-api.com/app/trackmyattendance_portal-kexzf/endpoint/TeacherLogin_GET",
+            true
+            );
+            xmlhttp.send();
+        }
+        
+    
+    else{
+        document.getElementById("err").style.display="block";
+        document.getElementById("invalid").innerHTML="Password not Matched.";
+        $('#err').fadeIn('slow', function () {
+            $(this).delay(2000).fadeOut('slow');
+            });
+    }
+
+    
+    
+   }
+   function login(){
+    location.href = 'teacherlogin.html';
+         }
+   </script>
+
+</body>
+</html>
